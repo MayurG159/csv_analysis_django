@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Analysis Results</h1>
+        {% if message %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endif %}
+
+        <h3>Preview of Data:</h3>
+        {{ preview|safe }}
+
+        <h3>Summary Statistics:</h3>
+        {{ summary_stats|safe }}
+
+        <h3>Missing Values:</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Column</th>
+                    <th>Missing Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for column, missing in Columns_of_missing_values.items %}
+                <tr>
+                    <td>{{ column }}</td>
+                    <td>{{ missing }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Visualizations:</h3>
+        <div class="row">
+            {% for visualization in visualizations %}
+            <div class="col-md-6">
+                <img src="{{ visualization }}" class="img-fluid" alt="Visualization">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
