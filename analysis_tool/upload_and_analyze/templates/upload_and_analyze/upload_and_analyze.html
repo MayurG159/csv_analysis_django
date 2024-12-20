@@ -10,6 +10,20 @@
             margin: 0;
             padding: 0;
             background-color: #f3f4f6;
+            display: flex; /* Enable flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh; /* Full viewport height */
+        }
+
+        .container {
+            text-align: center; /* Center text inside */
+            width: 100%; /* Full width */
+            max-width: 600px; /* Limit maximum width */
+            background-color: white; /* Optional: Add background color */
+            padding: 20px;
+            border-radius: 8px; /* Optional: Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
         }
 
         .header {
@@ -55,8 +69,10 @@
             background-color: #357abd;
         }
 
-        .content {
-            padding: 20px;
+        .instructions {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
         }
 
         .footer {
@@ -64,39 +80,33 @@
             padding: 10px;
             background-color: #4a90e2;
             color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .instructions {
             margin-top: 20px;
-            font-size: 18px;
-            color: #555;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>CSV Analysis Tool</h1>
-        <form method="POST" enctype="multipart/form-data" action="{% url 'upload and analyze' %}">
-            {% csrf_token %}
-            <div class="upload-container">
-                <div class="upload-box">
-                    <label for="csvFile">Upload CSV:</label>
-                    <input type="file" id="csvFile" name="csv_file" accept=".csv">
+    <div class="container">
+        <div class="header">
+            <h1>CSV Analysis Tool</h1>
+            <form method="POST" enctype="multipart/form-data" action="{% url 'upload and analyze' %}">
+                {% csrf_token %}
+                <div class="upload-container">
+                    <div class="upload-box">
+                        <label for="csvFile">Upload CSV:</label>
+                        <input type="file" id="csvFile" name="csv_file" accept=".csv">
+                    </div>
+                    <button type="submit">Analyze</button>
                 </div>
-                <button type="submit">Analyze</button>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
 
-    <div class="content">
-        <p class="instructions">Welcome to the CSV Analysis Tool! Please upload a CSV file to begin. Once uploaded, click the Analyze button to perform an analysis on the data.</p>
-    </div>
+        <div class="content">
+            <p class="instructions">Welcome to the CSV Analysis Tool! Please upload a CSV file to begin. Once uploaded, click the Analyze button to perform an analysis on the data.</p>
+        </div>
 
-    <div class="footer">
-        <p>&copy; 2024 CSV Analysis Tool. All Rights Reserved.</p>
+        <div class="footer">
+            <p>&copy; 2024 CSV Analysis Tool. All Rights Reserved.</p>
+        </div>
     </div>
 </body>
 </html>
