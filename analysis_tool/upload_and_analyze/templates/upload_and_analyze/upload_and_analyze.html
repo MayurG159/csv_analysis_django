@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f3f4f6;
+            background-color: #a6a6a6;
             display: flex; /* Enable flexbox */
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */
@@ -20,7 +20,7 @@
             text-align: center; /* Center text inside */
             width: 100%; /* Full width */
             max-width: 600px; /* Limit maximum width */
-            background-color: white; /* Optional: Add background color */
+            background-color: rgb(178, 232, 255); /* Optional: Add background color */
             padding: 20px;
             border-radius: 8px; /* Optional: Rounded corners */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
@@ -37,22 +37,23 @@
         }
 
         .header h1 {
-            margin: 0 0 20px 0;
-            font-size: 24px;
+            margin: 0 20px 0 0;
+            font-size: 30px;
         }
 
         .upload-container {
             display: flex;
-            justify-content: center;
+            justify-content: start;
             align-items: center;
         }
 
         .upload-box {
             margin-right: 10px;
+            font-size: 18px;
         }
 
         input[type="file"] {
-            padding: 5px;
+            padding: 10px;
         }
 
         button {
@@ -93,9 +94,13 @@
                 <div class="upload-container">
                     <div class="upload-box">
                         <label for="csvFile">Upload CSV:</label>
-                        <input type="file" id="csvFile" name="csv_file" accept=".csv">
+                            <input type="file" id="csvFile" name="csv_file" accept=".csv">
                     </div>
-                    <button type="submit">Analyze</button>
+                    <div style="border: 2px solid #ccc; padding: 10px; margin-top: 10px; display: inline-block; border-radius: 5px; background-color: #f9f9f9;">
+                        <button type="submit" style="background-color: #888888; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                            Analyze
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -105,7 +110,7 @@
         </div>
 
         <div class="footer">
-            <p>&copy; 2024 CSV Analysis Tool. All Rights Reserved.</p>
+            <p>&copy; 2024 CSV Analysis Tool</p>
         </div>
     </div>
 </body>
